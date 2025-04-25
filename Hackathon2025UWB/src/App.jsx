@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import TweetDisplay from '../components/tweet_display';
 import './App.css'
 
@@ -6,7 +5,7 @@ function App() {
 
   return (
     <>
-      <TweetDisplay />
+      <TweetDisplay id="1915450756615831969"/>
     </>
   )
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Tweet } from 'react-tweet';
 
-export default function tweet_display() {
+export default function tweet_display({id}) {
   return (
-    <Tweet id="1915450756615831969"/>
+    <Tweet id={id}/>
   )
 }
