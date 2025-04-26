@@ -24,6 +24,22 @@ function App() {
 
 
       <div className="main-containter">
+        
+        <div className="crisis-map">
+          <h2>Crisis Map</h2>
+          {/* API_KEY NEEDED */} 
+          <iframe 
+            src="https://www.google.com/maps/embed/v1/place?key="
+            width="70%" 
+            height="600px" 
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Crisis Map">
+          </iframe>
+        </div>
+
         <TweetDisplay id="1915450756615831969"/>
       </div>
     </>
