@@ -12,7 +12,6 @@ export default function projects() {
     <h3>Watch Global</h3>
     <p>We are currently working on a project that aims to create a crisis map that will help people in need.</p>
  </div>
- 
 </>
   )
 }
