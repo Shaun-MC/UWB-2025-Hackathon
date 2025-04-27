@@ -1,20 +1,13 @@
+"use client"
 import { useJsApiLoader } from "@react-google-maps/api";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const STARTING_MAP_OPTIONS = {
     center: { lat: 39.5, lng: -98.35 },
-    zoom: 4,
-    mapTypeId: 'roadmap',
+    zoom: 5,
+    mapTypeId: 'satellite',
     radius: 20
 }
-
-const createGoogleMap = (ref) => {
-    if (window.google) {
-        return new window.google.maps.Map(ref, STARTING_MAP_OPTIONS);
-    }
-    console.error("Google Maps API is not loaded.");
-    return null;
-};
 
 const CrisisMap = ({ fetchedCrisis }) => {
 
@@ -26,6 +19,14 @@ const CrisisMap = ({ fetchedCrisis }) => {
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
         libraries: ['visualization'],
     })
+
+    const createGoogleMap = (ref) => {
+        if (window.google) {
+            return new window.google.maps.Map(ref, STARTING_MAP_OPTIONS);
+        }
+        console.error("Google Maps API is not loaded.");
+        return null;
+    };
 
     const heatmapPoints = useMemo(() => {
         if (!fetchedCrisis) return []
@@ -44,7 +45,6 @@ const CrisisMap = ({ fetchedCrisis }) => {
     }, [isLoaded, map])
 
     useEffect(() => {
-
         if (map && heatmapPoints.length > 0) {
 
             if (heatmapLayerRef.current) {

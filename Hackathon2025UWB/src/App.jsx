@@ -1,12 +1,12 @@
 import TweetDisplay from './components/tweet_display.jsx';
-import CrisisMap from './components/heat_map.jsx'; 
+import CrisisMap from './components/heat_map2.jsx'; 
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { getCrisis } from './firebase.js';
 import './App.css'
 
 function App() {
-  const [fetchedCrisis, setFetchedCrisis] = useState([]);
+  const [fetchedCrises, setFetchedCrisis] = useState([]);
   // This is a test function to get the crisis posts from the DB (Tweets, instagram posts, TikToks, etc.)
   // populate the heatmap with the crisis posts
    useEffect(() => {
@@ -46,9 +46,9 @@ function App() {
         
         <div className="crisis-map">
           <h2>Crisis Map</h2>
-          <CrisisMap fetchedCrisis={fetchedCrisis} />
+          <CrisisMap fetchedCrisis={fetchedCrises} />
         </div>
-        {fetchedCrisis.map((tweet) => (
+        {fetchedCrises.map((tweet) => (
           <TweetDisplay key={tweet.postid} id={tweet.postid} />
         ))}
       </div>
