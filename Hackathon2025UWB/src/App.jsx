@@ -1,4 +1,5 @@
-import TweetDisplay from '../components/tweet_display';
+import TweetDisplay from './components/tweet_display.jsx';
+import CrisisMap from './components/heat_map.jsx'; 
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { getCrisis } from './firebase.js';
@@ -48,6 +49,7 @@ function App() {
         
         <div className="crisis-map">
           <h2>Crisis Map</h2>
+          <CrisisMap fetchedCrisis={fetchedCrisis} />
         </div>
         {fetchedCrisis.map((tweet) => (
           <TweetDisplay key={tweet.postid} id={tweet.postid} />
