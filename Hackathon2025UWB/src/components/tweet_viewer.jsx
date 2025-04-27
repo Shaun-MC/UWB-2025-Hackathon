@@ -1,9 +1,15 @@
 import { useState } from "react";
+import TweetDisplay from "./tweet_display.jsx";
 
 // Tried scrolling through the tweets, but it was not working
 // Use a paginagtion system to display tweets
 const PaginatedTweets = ({ tweetIDs }) => {
+
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    if (!tweetIDs || tweetIDs.length === 0) {
+        return <p>No tweets to display.</p>;
+    }
 
     const nextTweet = (e) => {
         e.stopPropagation();

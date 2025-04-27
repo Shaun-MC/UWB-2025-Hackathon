@@ -201,10 +201,6 @@ const CrisisMap = () => {
                                 <p>{hoveredMarker.summary}</p>
                             </div>
                             <div>
-                                <strong>Recent Tweets:</strong>
-                            </div>
-
-                            <div>
                                 <strong>Relief Links:</strong>
                                 <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                                     {hoveredMarker.reliefLinks.map((link, index) => (
@@ -213,6 +209,10 @@ const CrisisMap = () => {
                                         </li>
                                     ))}
                                 </ul>
+                            </div>
+                            <div>
+                                <strong>Recent Tweets:</strong>
+                                <PaginatedTweets tweetIDs={hoveredMarker.tweetIDs} />
                             </div>
                         </div>
                     </InfoWindow>
