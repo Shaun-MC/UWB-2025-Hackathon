@@ -33,6 +33,7 @@ function App() {
           <img src="/watch_global_finals-01.svg" alt="Watch.global Logo" className="logo" />
           <h1>Watch.global</h1>
         </div>
+
         <nav>
           <ul className="navbar">
             <li><a href="#">Home</a></li>
@@ -41,7 +42,9 @@ function App() {
             <li><a href="#">Contact</a></li>
           </ul>
         </nav>
+
       </header>
+      
       <div className="main-containter">
         
         <div className="crisis-map">
@@ -52,6 +55,10 @@ function App() {
           <TweetDisplay key={tweet.postid} id={tweet.postid} />
         ))}
       </div>
+      
+      <footer className="app-footer">
+        <p>&copy; 2025 Watch.global. All rights reserved.</p>
+      </footer>
     </>
   )
 }
