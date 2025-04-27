@@ -22,6 +22,7 @@ export const getCrisis = async(crisisType) => {
         const crisisList = collection(db, 'crisis');
         const crisisQuery = query(crisisList, where('crisisType', '==', crisisType));
         const crisisSnapshot = await getDocs(crisisQuery);
+        console.log(crisisSnapshot.docs.map(doc => doc.data()));
         return crisisSnapshot.docs.map(doc => doc.data());
     } catch (error) {
         throw new Error(error.message);

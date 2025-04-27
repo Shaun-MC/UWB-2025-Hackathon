@@ -1,14 +1,31 @@
 import TweetDisplay from '../components/tweet_display';
+import React from 'react'
+import { useEffect } from 'react';
+import { getCrisis } from './firebase.js';
 import './App.css'
 
 function App() {
+  // This is a test function to get the crisis posts from the DB (Tweets, instagram posts, TikToks, etc.)
+  // populate the heatmap with the crisis posts
+   useEffect(() => {
+  const crisisTypes = ['natural disaster', 'war', 'famine'];
+
+  // Function to fetch crisis data for each type
+  const fetchAllCrises = async () => {
+    for (const type of crisisTypes) {
+      await getCrisis(type);
+    }
+  };
+
+  fetchAllCrises();
+}, [])  
 
   return (
     <>
       <header className="app-header">
         <span>
           {/* This is a temp logo */}
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Test logo" class="logo" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Test logo" className="logo" />
           <h1>Watch.global</h1>
         </span>
       </header>
