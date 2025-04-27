@@ -18,7 +18,7 @@ const MAP_OPTIONS = {
     ukraine: { lat: 50.4504, lng: 30.5245 },
     sudan: { lat: 12.8628, lng: 30.2176 },
 
-    zoom: 3,
+    zoom: 4,
     mapTypeId: 'roadmap',
     radius: 20,
     opacity: .7
