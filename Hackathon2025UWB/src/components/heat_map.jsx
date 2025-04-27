@@ -23,8 +23,8 @@ const CrisisMap = ({ fetchedCrisis }) => {
     const [map, setMap] = useState(null);
 
     const { isLoaded, loadError } = useJsApiLoader({
-        googleMapsApiKey: import.meta.env.GOOGLE_MAPS_API_KEY,
-        libraries: ['visualization']
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+        libraries: ['visualization'],
     })
 
     const heatmapPoints = useMemo(() => {
@@ -38,10 +38,9 @@ const CrisisMap = ({ fetchedCrisis }) => {
 
     useEffect(() => {
         if (isLoaded && mapRef.current && !map) {
-            const newMap = createGoogleMap();
+            const newMap = createGoogleMap(mapRef.current);
             setMap(newMap);
-        }   
-
+        }
     }, [isLoaded, map])
 
     useEffect(() => {
