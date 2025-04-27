@@ -5,7 +5,6 @@ import { getCrisis } from './firebase.js';
 import './App.css'
 
 function App() {
-
   const [fetchedCrisis, setFetchedCrisis] = useState([]);
   // This is a test function to get the crisis posts from the DB (Tweets, instagram posts, TikToks, etc.)
   // populate the heatmap with the crisis posts
@@ -23,7 +22,6 @@ function App() {
     }
     setFetchedCrisis(allCrises); // Update state with the array of all crises
   };
-
   fetchAllCrises();
 }, [])  
 
@@ -35,7 +33,6 @@ function App() {
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Test logo" className="logo" />
           <h1>Watch.global</h1>
         </span>
-      </header>
 
       <nav>
       <ul className='navbar'>
@@ -45,7 +42,7 @@ function App() {
         <li><a href="#">Contact</a></li>
       </ul>
       </nav>
-
+      </header>
 
       <div className="main-containter">
         
