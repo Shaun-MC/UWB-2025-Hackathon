@@ -1,5 +1,5 @@
 import TweetDisplay from './components/tweet_display.jsx';
-import CrisisMap from './components/heat_map.jsx'; 
+import CrisisMap from './components/heat_map.jsx';
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { getCrisis } from './firebase.js';
@@ -9,22 +9,22 @@ function App() {
   const [fetchedCrises, setFetchedCrisis] = useState([]);
   // This is a test function to get the crisis posts from the DB (Tweets, instagram posts, TikToks, etc.)
   // populate the heatmap with the crisis posts
-   useEffect(() => {
-  const crisisTypes = ['natural disaster', 'war', 'famine'];
+  useEffect(() => {
+    const crisisTypes = ['natural disaster', 'war', 'famine'];
 
-  // Function to fetch crisis data for each type
-  const fetchAllCrises = async () => {
-    const allCrises = []; // Initialize an empty array
-    for (const type of crisisTypes) {
-      const crisisData = await getCrisis(type); // Fetch crisis data for each type
-      if (Array.isArray(crisisData)) {
-        allCrises.push(...crisisData); // Merge fetched data into the array
+    // Function to fetch crisis data for each type
+    const fetchAllCrises = async () => {
+      const allCrises = []; // Initialize an empty array
+      for (const type of crisisTypes) {
+        const crisisData = await getCrisis(type); // Fetch crisis data for each type
+        if (Array.isArray(crisisData)) {
+          allCrises.push(...crisisData); // Merge fetched data into the array
+        }
       }
-    }
-    setFetchedCrisis(allCrises); // Update state with the array of all crises
-  };
-  fetchAllCrises();
-}, [])  
+      setFetchedCrisis(allCrises); // Update state with the array of all crises
+    };
+    fetchAllCrises();
+  }, [])
 
   return (
     <>
@@ -44,15 +44,20 @@ function App() {
         </nav>
 
       </header>
-      
+
       <div className="main-containter">
-        
+
         <div className="crisis-map">
           <h2>Crisis Map</h2>
           <CrisisMap fetchedCrisis={fetchedCrises} />
         </div>
       </div>
-      
+      <div>
+        {fetchedCrises.map((tweet) => (
+          <TweetDisplay key={tweet.postid} id={tweet.postid} />
+        ))}
+      </div>
+
       <footer className="app-footer">
         <p>&copy; 2025 Watch.global. All rights reserved.</p>
       </footer>
