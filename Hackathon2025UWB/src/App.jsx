@@ -52,11 +52,6 @@ function App() {
           <CrisisMap fetchedCrisis={fetchedCrises} />
         </div>
       </div>
-      <div>
-        {fetchedCrises.map((tweet) => (
-          <TweetDisplay key={tweet.postid} id={tweet.postid} />
-        ))}
-      </div>
 
       <footer className="app-footer">
         <p>&copy; 2025 Watch.global. All rights reserved.</p>
