@@ -51,9 +51,6 @@ function App() {
           <h2>Crisis Map</h2>
           <CrisisMap fetchedCrisis={fetchedCrises} />
         </div>
-        {fetchedCrises.map((tweet) => (
-          <TweetDisplay key={tweet.postid} id={tweet.postid} />
-        ))}
       </div>
       
       <footer className="app-footer">

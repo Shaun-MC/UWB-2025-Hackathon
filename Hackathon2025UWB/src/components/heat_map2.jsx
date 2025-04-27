@@ -8,7 +8,7 @@ const STARTING_MAP_OPTIONS = {
     center: { lat: 40.7128, lng: -74.0060 },
     zoom: 12,
     mapTypeId: 'roadmap',
-    radius: 50,
+    radius: 10,
     opacity: 1
 }
 
