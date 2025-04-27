@@ -29,22 +29,19 @@ function App() {
   return (
     <>
       <header className="app-header">
-        <span>
-          {/* This is a temp logo */}
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Test logo" className="logo" />
-          <h1>watch.global</h1>
-        </span>
-
-      <nav>
-      <ul className='navbar'>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our Team</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      </nav>
+        <div className="logo-title">
+          <img src="/watch_global_finals-01.svg" alt="Watch.global Logo" className="logo" />
+          <h1>Watch.global</h1>
+        </div>
+        <nav>
+          <ul className="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our team</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
       </header>
-
       <div className="main-containter">
         
         <div className="crisis-map">
