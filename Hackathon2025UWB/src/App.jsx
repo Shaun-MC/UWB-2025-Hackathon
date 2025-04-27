@@ -1,10 +1,12 @@
 import TweetDisplay from '../components/tweet_display';
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getCrisis } from './firebase.js';
 import './App.css'
 
 function App() {
+
+  const [fetchedCrisis, setFetchedCrisis] = useState([]);
   // This is a test function to get the crisis posts from the DB (Tweets, instagram posts, TikToks, etc.)
   // populate the heatmap with the crisis posts
    useEffect(() => {
@@ -12,9 +14,14 @@ function App() {
 
   // Function to fetch crisis data for each type
   const fetchAllCrises = async () => {
+    const allCrises = []; // Initialize an empty array
     for (const type of crisisTypes) {
-      await getCrisis(type);
+      const crisisData = await getCrisis(type); // Fetch crisis data for each type
+      if (Array.isArray(crisisData)) {
+        allCrises.push(...crisisData); // Merge fetched data into the array
+      }
     }
+    setFetchedCrisis(allCrises); // Update state with the array of all crises
   };
 
   fetchAllCrises();
@@ -56,8 +63,9 @@ function App() {
             title="Crisis Map">
           </iframe> */}
         </div>
-
-        <TweetDisplay id="1915450756615831969"/>
+        {fetchedCrisis.map((tweet) => (
+          <TweetDisplay key={tweet.postid} id={tweet.postid} />
+        ))}
       </div>
     </>
   )
