@@ -1,4 +1,3 @@
-import TweetDisplay from './components/tweet_display.jsx';
 import CrisisMap from './components/heat_map.jsx';
 import React from 'react';
 import { useEffect, useState } from 'react';
