@@ -1,3 +1,3 @@
 # UWB-2025-Hackathon
 
-``` test ```
+``` UWB Hacks: Save The World 2025 Submission ```
